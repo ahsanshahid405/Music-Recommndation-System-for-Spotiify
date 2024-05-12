@@ -37,21 +37,27 @@ While KNN-based collaborative filtering offers several advantages, it also has p
     1. High Computational Cost: KNN involves calculating distances between the query point and all data points in the dataset, which can be computationally intensive, especially for large datasets. Our approach does not directly address this issue, but by selecting relevant features and tuning parameters, we aim to mitigate computational overhead while maintaining recommendation quality.
     2. Curse of Dimensionality: KNN performance may degrade in high-dimensional feature spaces due to the curse of dimensionality, where distances between points become less meaningful as the number of dimensions increases. Our approach focuses on feature selection and customization to mitigate the impact of high dimensionality, ensuring that the selected features capture essential aspects of song similarity effectively.
 ## Usage:
-(app.py )    
+
+# (app.py )    
 This Flask application defines routes for rendering an HTML template and handling POST requests for song recommendations using collaborative filtering with KNN (K-Nearest Neighbors) based on a provided song ID.
-(audio.ipynb )
+
+# (audio.ipynb )
 This file  reads audio files from a directory, extracts features including MFCC, spectral centroid, and zero-crossing rate using the librosa library, and combines them into feature vectors for each audio file.
-  (Similarity.ipynb)
+
+# (Similarity.ipynb)
 This file utilize collaborative filtering, specifically KNN (K-Nearest Neighbors), to recommend similar songs based on feature similarity, with data sourced from either a CSV file, MongoDB database, or provided directly as a DataFrame.
-(Preprocessing_Data_file.ipynb)
+
+# (Preprocessing_Data_file.ipynb)
 This file  loads and cleanses a music dataset from a directory, standardizing columns, padding track IDs, and removing special characters, before combining and displaying the data.
-(Spark.py)
+
+# (Spark.py)
 This file uses Spark to load data from MongoDB, applies collaborative filtering with KNN (K-Nearest Neighbors) to recommend similar songs based on cosine similarity, and displays recommendations for a given song ID.
-(Script.js)
+
+# (Script.js)
 This JavaScript code adds functionality to a web page for playing, pausing, and stopping audio files, as well as for uploading new audio files and sending an AJAX request to the backend with the name of the most recently played song for recommendations.
 
 
-##Contributors:
+## Contributors:
 This project is made by :
 1) Ahsan Abdul khafiz (i221870@nu.edu.pk)
 2) Ali Zaib (i221900@nu.edu.pk)
