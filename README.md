@@ -1,6 +1,6 @@
 # Music-Recommndation-System-for-Spotiify
 
-###Music Recommendation Web Application Based on      K-Nearest Neighbours (ANN):
+###Music Recommendation Web Application Based on K-Nearest Neighbours (ANN):
 This repository contains a web application that integrates with a music recommendation system, which leverages a dataset of 155,000 audio files, each lasting thirty seconds, utilizing a Approximate Nearest Neighbour implementation to determine rhythmic similarity, as part of a project for the Fundamental of Big Data Analytics (DS) course.
 
 ###Dependencies:
