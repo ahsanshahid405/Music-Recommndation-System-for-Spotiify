@@ -1,0 +1,80 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container-container">
+        <div class="container">
+            <div class="spotify-logo">
+                <img src="{{ url_for('static', filename='spotify-logo.png') }}" alt="Spotify Logo">
+                <span>Spotify</span>
+            </div>
+            <h1>Upload and Play Audio</h1>
+            <div id="buttonsContainer">
+                <button id="uploadButton">Upload Songs</button>
+                <button id="recommendationButton">Recommendation</button>
+            </div>
+            <div id="songList"></div>
+        </div>
+        <div class="container">
+            <div class="spotify-logo">
+                <img src="{{ url_for('static', filename='spotify-logo.png') }}" alt="Spotify Logo">
+                <span>Spotify</span>
+            </div>
+            <h1>Track Information</h1>
+            <div id="trackInfo">
+                <div class="trackInfoColumn">Track ID</div>
+                <div class="trackInfoColumn">Genre</div>
+                <div class="trackInfoColumn">Artist</div>
+                <div class="trackInfoColumn">Title</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // JavaScript code to handle song playing and recommendation button click
+        document.addEventListener('DOMContentLoaded', function() {
+            let recentSong = null; // Variable to store the name of the most recently played song
+
+            // Function to handle adding songs to the list and playing them
+            function addSongToList(file) {
+                // Your existing code to add songs and play them
+            }
+
+            // Your existing code for handling song upload, play, and pause buttons
+
+            // Function to handle the recommendation button click
+            const recommendationButton = document.getElementById('recommendationButton');
+            recommendationButton.addEventListener('click', function() {
+                // Check if a song has been played
+                if (recentSong) {
+                    // Send the name of the most recently played song to the Flask backend
+                    fetch('/recommendation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ songName: recentSong })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Recommendation sent successfully');
+                        } else {
+                            console.error('Failed to send recommendation');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                } else {
+                    console.error('No song has been played yet');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
